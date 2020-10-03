@@ -1,0 +1,353 @@
+@font-face {
+    font-family: MDL2;
+    src: url(../fonts/SegMDL2.ttf)
+}
+
+@font-face {
+    font-family: Vag;
+    src: url(../fonts/vag-world-bold.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline
+}
+
+html {
+    box-sizing: border-box
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+*::-webkit-scrollbar {
+    width: 3px;
+    height: 3px
+}
+
+*::-webkit-scrollbar-button {
+    background-color: #201f1f
+}
+
+*::-webkit-scrollbar-track {
+    background-color: #999
+}
+
+*::-webkit-scrollbar-track-piece {
+    background-color: #3d3a3a
+}
+
+*::-webkit-scrollbar-thumb {
+    height: 50px;
+    background-color: #0036ff;
+    border-radius: 3px
+}
+
+*::-webkit-scrollbar-corner {
+    background-color: #999
+}
+
+*::-webkit-resizer {
+    background-color: #666
+}
+
+html, body {
+    height: 100%;
+    margin: 0
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #1c1b1b;
+    background-size: cover;
+    color: #FFF;
+    overflow: hidden;
+}
+
+header {
+    display: block;
+    position: fixed;
+    height: 22px;
+    width: 100%;
+    background: #3d3a3a;
+    -webkit-app-region: drag;
+    z-index: 1;
+}
+
+#window-title {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-left: 10px;
+    overflow-x: hidden
+}
+
+#window-title span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+}
+
+#window-controls .button {
+    grid-row: 1 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%
+}
+
+#settings-button {
+    grid-column: 1
+}
+
+#min-button {
+    grid-column: 1;
+}
+
+#max-page-button {
+    grid-column: 2
+}
+
+#change-button {
+    grid-column: 2
+}
+
+#close-button {
+    grid-column: 3
+}
+
+#window-controls {
+    -webkit-app-region: no-drag
+}
+
+#window-controls .button {
+    user-select: none;
+    cursor: default;
+    color: #BBB
+}
+
+#window-controls .button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFF
+}
+
+#window-controls #close-button:hover {
+    background: #e81123;
+    z-index: 1;
+}
+
+#window-controls {
+    display: grid;
+    grid-template-columns: repeat(3, 30px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    font-family: "MDL2";
+    font-size: 10px
+}
+
+#settingsBar {
+    height: 100%;
+    min-width: 230px;
+    width: 20%;
+    background: #71ffc46b;
+    position: absolute;
+    margin-top: 22px;
+    font-family: Vag;
+    z-index: 1;
+    overflow: auto;
+    padding-bottom: 20px;
+}
+
+#settingsBar>div>input, textarea, select {
+    width: 80%;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 2px solid #0bf7d67d;
+    background-color: #00ffff00;
+    color: white;
+}
+
+#settingsBar>div>textarea {
+    margin: 15px 0px 0px;
+    min-height: 40px;
+    resize: vertical;
+    height: 40px;
+}
+
+option {
+    color: black;
+}
+
+span {
+    z-index: -1;
+}
+
+#categoryList {
+    font-family: Vag;
+    position: absolute;
+    min-width: 180px;
+    width: 18%;
+    height: 15%;
+    background-color: #00ff66b5;
+    right: 0px;
+    top: 22px;
+    z-index: 1;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: opacity 1s;
+}
+
+#categoryList:empty {
+    opacity: 0;
+}
+
+#categoryList>input {
+    margin: 0px 10px;
+}
+
+#categoryList>span {
+    white-space: nowrap;
+}
+
+.trueButton {
+    background: #00ff2bbf;
+    width: 80%;
+    margin-top: 15px;
+    border-radius: 3px;
+}
+
+.trueButton:hover {
+    background: #00ff2b;
+}
+
+.falseButton {
+    background: #ff5e00bf;
+    width: 80%;
+    margin-top: 15px;
+    border-radius: 3px;
+}
+
+.falseButton:hover {
+    background: #ff5e00;
+}
+
+::-webkit-input-placeholder {
+    color: #41ff00;
+}
+
+#settingsBar>div {
+    background-color: #ce00ff66;
+    margin-top: 10px;
+    padding: 10px 0px;
+    text-align: -webkit-center;
+}
+
+#settingsBar>span {
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.element {
+    width: 250px;
+    height: 180px;
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.5);
+    border: 1px solid rgba(127, 255, 255, 0.25);
+    cursor: default;
+    overflow: hidden;
+}
+
+.element:hover {
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.75);
+    border: 1px solid rgba(127, 255, 255, 0.75);
+}
+
+.element .number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: rgba(127, 255, 255, 0.75);
+}
+
+.element .symbol {
+    position: static;
+    top: 40px;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: bold;
+    -webkit-filter: drop-shadow(0px 0px 20px rgba(0, 255, 255, 0.95));
+    -moz-filter: drop-shadow(0px 0px 20px rgba(0, 255, 255, 0.95));
+    -o-filter: drop-shadow(0px 0px 20px rgba(0, 255, 255, 0.95));
+    -ms-filter: drop-shadow(0px 0px 20px rgba(0, 255, 255, 0.95));
+    filter: drop-shadow(0px 0px 20px rgba(0, 255, 255, 0.95));
+    word-break: break-all;
+    max-height: 2.5em;
+    overflow: hidden;
+}
+
+.element .date {
+    color: #ffbd22;
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+}
+
+.element .details {
+    position: sticky;
+    top: 125px;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    color: rgba(127, 255, 255, 0.75);
+    word-wrap: break-word;
+}
+
+input[type=checkbox] {
+    position: relative;
+    cursor: pointer;
+    color: black;
+    margin: 5px
+}
+
+input[type=checkbox]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    border: 1px solid #555555;
+    border-radius: 3px;
+    background-color: white;
+}
+
+input[type=checkbox]:checked:after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid #1880e7;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}

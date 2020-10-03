@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notification</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <div id="window-title"> <span style="color: #7b7979;">Notifications</span> </div>
+        <div id="window-controls">
+            <div class="button" id="min-button"> <span>&#xE921;</span> </div>
+            <div class="button" id="max-page-button"> <span>&#xE922;</span> </div>
+            <div class="button" id="change-button" style="display: none;"> <span>&#xE923;</span> </div>
+            <div class="button" id="close-button"> <span>&#xE8BB;</span> </div>
+        </div>
+    </header>
+    <div id="settingsBar">
+        <span id="countAllNotification">Всего напоминаний</span>
+
+        <div id="createNewNotificationBlock">
+            <span>Новое напоминание</span>
+            <input type="text" placeholder="Название" id="newNotificationName">
+            <input type="text" placeholder="Подробное описание" id="newNotificationAllInfo">
+            <select id="addCategoryOfElem" onchange="changeCreateList(this.value)">
+                <option value="default" disabled selected hidden>Выберите категорию</option>
+                <option value="create">Создать</option>
+            </select>
+            <input type="text" placeholder="Название категории" id="newCategory" style="display: none;">
+            <input type="text" placeholder="Срок выполнения" id="newNotificationDeadLine">
+            <div class="trueButton" id="createNewNotificationButton">Создать</div>
+        </div>
+
+        <div id="infoNotification">
+            <span>Выбранное напоминание</span>
+            <input type="text" id="infoNotificationName">
+            <textarea type="text" id="infoNotificationAllInfo" style="max-height: 15em;" rows="2"
+                style="min-height: 35px;resize: vertical;"></textarea>
+            <input type="text" id="infoNotificationDeadLine">
+            <div class="trueButton" id="infoNotificationEdit">Редактировать</div>
+            <div class="falseButton" id="infoNotificationButton">Удалить</div>
+        </div>
+
+        <div id="createCategory" style="display: none;">
+            <span>Создать категорию</span>
+            <input type="text" placeholder="Название категории" id="nameCategoryInputCreate">
+            <div class="trueButton" id="nameCategoryCreate">Создать</div>
+        </div>
+
+        <div id="DeleteCategory">
+            <span>Удалить категорию</span>
+            <select id="nameCategoryDeleteOption">
+                <option value="" disabled selected hidden>Выберите категорию</option>
+            </select>
+            <div class="falseButton" id="nameCategoryDelete">Удалить</div>
+        </div>
+
+        <div id="infoNotification">
+            <span>Удалить все данные </span><br>
+            <input type="checkbox" id="deleteAllDataConfirm" style="width: min-content;">
+            <span>Подтвердите действие</span>
+            <div class="falseButton" id="deleteAllData">Удалить всё</div>
+        </div>
+    </div>
+    <div id="categoryList">
+        <input type="checkbox" onclick="filter(this,'Общая')" checked style="width: min-content;">
+        <span>Категория: Общая</span><br>
+    </div>
+    <div id="container"></div>
+    <script src="./assets/js/library/three.js"></script>
+    <script src="./assets/js/library/tween.min.js"></script>
+    <script src="./assets/js/library/TrackballControls.js"></script>
+    <script src="./assets/js/library/CSS3DRenderer.js"></script>
+    <script src="./assets/js/renderer.js"></script>
+    <script>
+        const filter = (t, name) => {
+            let array = document.getElementsByClassName("element")
+            if (t.checked) {
+                for (let i = 0; i < array.length; i++) {
+                    if (array[i].getElementsByClassName("category")[0].value == name) {
+                        array[i].style.opacity = 1
+                    }
+                }
+            } else {
+                for (let i = 0; i < array.length; i++) {
+                    if (array[i].getElementsByClassName("category")[0].value == name) {
+                        array[i].style.opacity = 0
+                    }
+                }
+            }
+        }
+
+        let inputCategory = document.getElementById("newCategory");
+        let listCategory = document.getElementById("addCategoryOfElem");
+
+        const changeCreateList = (e) => {
+            if (e === "create") {
+                listCategory.style.display = "none";
+                inputCategory.style.display = "initial";
+                listCategory.value = "default";
+                inputCategory.focus();
+            }
+        }
+
+        inputCategory.addEventListener("focusout", () => {
+            if (!inputCategory.value) {
+                listCategory.style.display = "initial";
+                inputCategory.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>

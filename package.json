@@ -1,0 +1,38 @@
+{
+  "name": "chameleon",
+  "version": "1.7.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "cilinux": "node build.js WINDOWS && node build.js LINUX",
+    "cidarwin": "node build.js MAC",
+    "dist": "node build.js",
+    "dist:win": "npm run dist -- WINDOWS",
+    "dist:mac": "npm run dist -- MAC",
+    "dist:linux": "npm run dist -- LINUX",
+    "lint": "eslint --config .eslintrc.json ."
+  },
+  "engines": {
+    "node": "12.x.x"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.13",
+    "appdata-path": "^1.0.0",
+    "async": "^3.1.0",
+    "ejs": "^2.7.1",
+    "ejs-electron": "^2.0.3",
+    "electron-root-path": "^1.0.16",
+    "electron-updater": "^4.1.2",
+    "path": "^0.12.7",
+    "fs": "0.0.1-security",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "electron": "^6.0.12",
+    "electron-builder": "^21.2.0",
+    "eslint": "^6.5.1"
+  }
+}
